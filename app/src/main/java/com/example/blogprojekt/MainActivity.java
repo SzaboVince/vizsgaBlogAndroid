@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity implements RequestTask.OutRe
     private Button loginBtn;
     private TextView createTV;
     private TextView hibaTV;
-    private Button tovaBtn;
     private String hibauzenet;
     private SharedPreferences sharedpreferences;
 
@@ -62,14 +61,6 @@ public class MainActivity extends AppCompatActivity implements RequestTask.OutRe
             }
         });
 
-        tovaBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), NewPostActivity.class));
-                finish();
-            }
-        });
-
         createTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -86,7 +77,6 @@ public class MainActivity extends AppCompatActivity implements RequestTask.OutRe
         loginBtn=findViewById(R.id.loginButton);
         createTV=findViewById(R.id.createTextView);
         hibaTV=findViewById(R.id.hibaTextView);
-        tovaBtn=findViewById(R.id.tovabutton);
 
         sharedpreferences = getSharedPreferences("Main", Context.MODE_PRIVATE);
     }

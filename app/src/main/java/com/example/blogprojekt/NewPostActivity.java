@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -30,6 +31,7 @@ public class NewPostActivity extends AppCompatActivity implements RequestTask.Ou
     private Date asd;
     private Date date;
     private int id;
+    private TextView errorTV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,23 +58,28 @@ public class NewPostActivity extends AppCompatActivity implements RequestTask.Ou
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LocalDateTime lt=LocalDateTime.now();
-                Log.d("Idő",lt.toString());
-                timestamp= Calendar.getInstance().getTime();
-                String text=textET.getText().toString();
-                String postString="";
-                Log.d("ASD",timestamp.toString());
-                try {
-                    postString=new JSONObject()
-                            .put("userId",id)
-                            .put("text",text)
-                            .put("timestamp",lt)
-                            .toString();
-                } catch (JSONException e){
-                    e.printStackTrace();
+
+                LocalDateTime lt = LocalDateTime.now();
+                Log.d("Idő", lt.toString());
+                timestamp = Calendar.getInstance().getTime();
+                String text = textET.getText().toString();
+                String postString = "";
+                Log.d("ASD", timestamp.toString());
+                if (text.isEmpty()) {
+                    errorTV.setText("The text field cannot be empty!");
+                } else {
+                    try {
+                        postString = new JSONObject()
+                                .put("userId", id)
+                                .put("text", text)
+                                .put("timestamp", lt)
+                                .toString();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    RequestTask task = new RequestTask(NewPostActivity.this, "postblog", "POST", postString);
+                    task.execute();
                 }
-                RequestTask task=new RequestTask(NewPostActivity.this,"postblog","POST",postString);
-                task.execute();
             }
         });
     }
@@ -84,6 +91,7 @@ public class NewPostActivity extends AppCompatActivity implements RequestTask.Ou
         textET=findViewById(R.id.edtInput);
         sh2=getSharedPreferences("Profile", Context.MODE_PRIVATE);
         id=sh2.getInt("userid",0);
+        errorTV=findViewById(R.id.errorpostTextView);
     }
 
     @Override

@@ -60,19 +60,11 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10sp"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/createTextView"
-        android:text="Tova"
-        android:id="@+id/tovabutton"
-        android:textSize="20dp"/>
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/hibaTextView"
-        android:layout_below="@+id/tovabutton"
+        android:layout_below="@+id/loginButton"
         android:textAlignment="center"
         android:textColor="@color/red"/>
 
