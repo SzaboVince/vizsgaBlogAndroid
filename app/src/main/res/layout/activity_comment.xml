@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="10dp"
+    tools:context=".CommentActivity">
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:textSize="20dp"
+            android:id="@+id/backButton"
+            android:background="@color/lightblue"
+            android:backgroundTint="@color/lightblue"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Comments"
+            android:textSize="30dp"
+            android:id="@+id/comment"
+            android:layout_below="@id/backButton"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/newcommentButton"
+            android:layout_below="@id/comment"
+            android:textSize="20dp"
+            android:text="New comment"
+            android:layout_centerHorizontal="true"
+            android:background="@color/lightblue"
+            android:backgroundTint="@color/lightblue"
+            android:textColor="@color/white" />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/comment_listitem"
+            android:layout_below="@+id/newcommentButton"
+            android:id="@+id/commentListView"/>
+
+</RelativeLayout>
