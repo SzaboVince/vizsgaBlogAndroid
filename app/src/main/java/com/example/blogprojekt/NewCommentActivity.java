@@ -21,6 +21,7 @@ import java.time.LocalDateTime;
 public class NewCommentActivity extends AppCompatActivity implements RequestTask.OutResponse {
     private EditText commentInput;
     private Button commentsubmit;
+    private Button commentback;
     private SharedPreferences sh;
     private SharedPreferences sh2;
     private int id;
@@ -32,6 +33,14 @@ public class NewCommentActivity extends AppCompatActivity implements RequestTask
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_comment);
         init();
+        commentback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent main = new Intent(NewCommentActivity.this, CommentActivity.class);
+                startActivity(main);
+                finish();
+            }
+        });
         commentsubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,6 +72,7 @@ public class NewCommentActivity extends AppCompatActivity implements RequestTask
     public void init(){
         commentInput=findViewById(R.id.commentInput);
         commentsubmit=findViewById(R.id.commentSubmitButton);
+        commentback=findViewById(R.id.newcommentBackBtn);
         sh2=getSharedPreferences("Profile", Context.MODE_PRIVATE);
         id=sh2.getInt("userid",0);
         errorTV=findViewById(R.id.errorTextView);

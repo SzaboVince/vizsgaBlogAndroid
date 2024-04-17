@@ -24,6 +24,8 @@ import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class HomeActivity extends AppCompatActivity implements RequestTask.OutResponse{
@@ -87,6 +89,7 @@ public class HomeActivity extends AppCompatActivity implements RequestTask.OutRe
             TextView posttext=view.findViewById(R.id.posttext);
             Button postlike=view.findViewById(R.id.postlike);
             Button postcomment=view.findViewById(R.id.postcomment);
+
             Blogs actualBlog=blogsList.get(position);
             postusername.setText(actualBlog.getUser());
             posttimestamp.setText(actualBlog.getTimestamp().toString());
@@ -124,7 +127,7 @@ public class HomeActivity extends AppCompatActivity implements RequestTask.OutRe
     public void response(Response response){
         Gson converter=new Gson();
         if (response.getResponseCode()>=400){
-            Toast.makeText(HomeActivity.this, "Hiba történt a kérés feldolgozása során", Toast.LENGTH_SHORT).show();
+            Toast.makeText(HomeActivity.this, "Bad request", Toast.LENGTH_SHORT).show();
             Log.d("onPostExecuteError:", response.getContent());
         }
         if (response.getResponseCode()==200){

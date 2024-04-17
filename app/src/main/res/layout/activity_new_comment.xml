@@ -7,12 +7,25 @@
     android:padding="10dp"
     tools:context=".NewCommentActivity">
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/newcommentBackBtn"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:background="@color/lightblue"
+        android:backgroundTint="@color/lightblue"
+        android:textColor="@color/white"
+        android:text="Back"/>
+
+
     <ImageView
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
         android:src="@drawable/newpost_vector"
-        android:id="@+id/newcommentkepecske"/>
+        android:id="@+id/newcommentkepecske"
+        android:layout_below="@+id/newcommentBackBtn"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -26,7 +39,7 @@
         android:id="@+id/commentInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Ide tudod vésni a témácskákat"
+        android:hint="New comment input"
         android:inputType="textCapSentences|textMultiLine"
         android:lines="10"
         android:layout_centerHorizontal="true"

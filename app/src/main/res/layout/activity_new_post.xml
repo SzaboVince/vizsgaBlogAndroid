@@ -31,7 +31,7 @@
             android:id="@+id/edtInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Ide tudod vésni a témácskákat"
+            android:hint="New post input"
             android:inputType="textCapSentences|textMultiLine"
             android:lines="10"
             android:layout_centerHorizontal="true"
