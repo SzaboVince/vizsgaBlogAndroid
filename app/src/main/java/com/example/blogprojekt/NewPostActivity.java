@@ -71,8 +71,8 @@ public class NewPostActivity extends AppCompatActivity implements RequestTask.Ou
                     try {
                         postString = new JSONObject()
                                 .put("userId", id)
-                                .put("text", text)
-                                .put("timestamp", lt)
+                                .put("desc", text)
+                                .put("createdAt", lt)
                                 .toString();
                     } catch (JSONException e) {
                         e.printStackTrace();

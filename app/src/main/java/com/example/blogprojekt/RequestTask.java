@@ -13,7 +13,7 @@ public class RequestTask extends AsyncTask<Void, Void, Response> {
     private Context context;
     private OutResponse outResponse;
 
-    private final String BASE_URL = "http://10.0.2.2:1997/";
+    private final String BASE_URL = "http://10.0.2.2:2000/";
 
     public RequestTask(Context context, String requestUrl, String requestType) {
         this.requestUrl = requestUrl;

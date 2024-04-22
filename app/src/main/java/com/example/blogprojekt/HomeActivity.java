@@ -33,8 +33,6 @@ public class HomeActivity extends AppCompatActivity implements RequestTask.OutRe
     private BottomNavigationView botnav;
     private ListView blogLV;
     private List<Blogs> blogsList=new ArrayList<>();
-    private int likeCount;
-    private List<LikeCount> likeCountList=new ArrayList<>();
     SharedPreferences sh;
 
 
@@ -87,7 +85,6 @@ public class HomeActivity extends AppCompatActivity implements RequestTask.OutRe
             TextView postusername=view.findViewById(R.id.postusername);
             TextView posttimestamp=view.findViewById(R.id.posttimestamp);
             TextView posttext=view.findViewById(R.id.posttext);
-            Button postlike=view.findViewById(R.id.postlike);
             Button postcomment=view.findViewById(R.id.postcomment);
 
             Blogs actualBlog=blogsList.get(position);
@@ -107,8 +104,6 @@ public class HomeActivity extends AppCompatActivity implements RequestTask.OutRe
                     finish();
                 }
             });
-            //TODO: likecount
-            postlike.append(" "+likeCount);
             return view;
 
 

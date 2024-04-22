@@ -54,10 +54,10 @@ public class NewCommentActivity extends AppCompatActivity implements RequestTask
                 else{
                     try {
                         commentString=new JSONObject()
-                                .put("commentUserId",id)
-                                .put("commentText",text)
-                                .put("timestamp",lt)
-                                .put("commentBlogId",blogId)
+                                .put("userId",id)
+                                .put("desc",text)
+                                .put("createdAt",lt)
+                                .put("postId",blogId)
                                 .toString();
                     } catch (JSONException e){
                         e.printStackTrace();

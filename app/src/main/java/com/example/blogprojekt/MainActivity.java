@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity implements RequestTask.OutRe
     private EditText usernameET;
     private EditText passwordET;
     private Button loginBtn;
-    private TextView createTV;
     private TextView hibaTV;
     private String hibauzenet;
     private SharedPreferences sharedpreferences;
@@ -61,21 +60,12 @@ public class MainActivity extends AppCompatActivity implements RequestTask.OutRe
             }
         });
 
-        createTV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this,RegisterActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
     }
 
     public void init(){
         usernameET=findViewById(R.id.usernameEditText);
         passwordET=findViewById(R.id.passwordEditText);
         loginBtn=findViewById(R.id.loginButton);
-        createTV=findViewById(R.id.createTextView);
         hibaTV=findViewById(R.id.hibaTextView);
 
         sharedpreferences = getSharedPreferences("Main", Context.MODE_PRIVATE);
