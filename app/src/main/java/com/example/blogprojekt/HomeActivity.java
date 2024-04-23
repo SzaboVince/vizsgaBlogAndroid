@@ -34,7 +34,7 @@ public class HomeActivity extends AppCompatActivity implements RequestTask.OutRe
     private ListView blogLV;
     private List<Blogs> blogsList=new ArrayList<>();
     SharedPreferences sh;
-
+    private TextView numberofposts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,6 +116,7 @@ public class HomeActivity extends AppCompatActivity implements RequestTask.OutRe
         blogLV=findViewById(R.id.blogListView);
         blogLV.setAdapter(new BlogsAdapter());
         sh=getSharedPreferences("Home", Context.MODE_PRIVATE);
+        numberofposts=findViewById(R.id.numberofposts);
     }
 
     @Override
@@ -132,6 +133,11 @@ public class HomeActivity extends AppCompatActivity implements RequestTask.OutRe
             Log.d("prePostExecute: ",blogsList.toString());
             blogLV.invalidateViews();
             Log.d("onPostExecute: ",response.getContent());
+            int asd=0;
+            for(Blogs i :blogsList){
+                asd++;
+            }
+            numberofposts.setText("Number of posts: "+asd);
         }
     }
 }

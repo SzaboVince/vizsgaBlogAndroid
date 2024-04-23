@@ -33,6 +33,7 @@ public class CommentActivity extends AppCompatActivity implements RequestTask.Ou
     private SharedPreferences sh;
     private int blogId;
     private List<Comments> commentsList=new ArrayList<>();
+    private TextView numberofcomments;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +91,7 @@ public class CommentActivity extends AppCompatActivity implements RequestTask.Ou
         commentLV.setAdapter(new CommentsAdapter());
         sh=getSharedPreferences("Home", Context.MODE_PRIVATE);
         blogId=sh.getInt("blogid",0);
+        numberofcomments=findViewById(R.id.numberofcomments);
     }
 
     @Override
@@ -106,6 +108,11 @@ public class CommentActivity extends AppCompatActivity implements RequestTask.Ou
             Log.d("prePostExecute: ",commentsList.toString());
             commentLV.invalidateViews();
             Log.d("onPostExecute: ",response.getContent());
+            int asd=0;
+            for(Comments i :commentsList){
+                asd++;
+            }
+            numberofcomments.setText("Number of comments: "+asd);
         }
     }
 }

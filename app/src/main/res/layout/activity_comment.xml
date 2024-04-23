@@ -41,11 +41,19 @@
             android:backgroundTint="@color/lightblue"
             android:textColor="@color/white" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/numberofcomments"
+            android:textSize="20dp"
+            android:text="Number of comments: 0"
+            android:layout_below="@id/newcommentButton"/>
+
         <ListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:listitem="@layout/comment_listitem"
-            android:layout_below="@+id/newcommentButton"
+            android:layout_below="@+id/numberofcomments"
             android:id="@+id/commentListView"/>
 
 </RelativeLayout>
