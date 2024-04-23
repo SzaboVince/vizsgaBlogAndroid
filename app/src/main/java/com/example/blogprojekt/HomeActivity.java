@@ -92,14 +92,14 @@ public class HomeActivity extends AppCompatActivity implements RequestTask.OutRe
             posttimestamp.setText(actualBlog.getTimestamp().toString());
             posttext.setText(actualBlog.getText());
 
-            SharedPreferences.Editor editor=sh.edit();
-            editor.putInt("blogid",actualBlog.getId());
-            editor.commit();
 
 
             postcomment.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    SharedPreferences.Editor editor=sh.edit();
+                    editor.putInt("blogid",actualBlog.getId());
+                    editor.commit();
                     startActivity(new Intent(getApplicationContext(), CommentActivity.class));
                     finish();
                 }
